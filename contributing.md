@@ -15,14 +15,53 @@ We are looking for contributions that:
 
 ## How to contribute
 
-If you'd like to contribute, start by searching through the issues and pull requests to see whether someone else has raised a similar idea or question.
-
-If your idea is new, do the following:
+If you'd like to contribute with a real-world example, please do the following:
 
 1. **Fork the repository**: Click on the 'Fork' button at the top right corner of the page. This will create a copy of the repository in your GitHub account.
 2. **Clone your fork**: Navigate to your GitHub profile, find the forked repository, and clone it to your local machine.
 3. **Create a branch**: Once you have cloned the repository, navigate to it from your terminal and create a branch where you'll work on your contribution. Use a name that describes your contribution, for example, `add-new-test-example`.
 4. **Make your changes**: Add or modify the content as needed. Make sure to follow the style and structure of the existing content.
+
+Go to the md file of the test you want to add an example, like `accepted_range.md` and submit an example like the one below:
+
+#### Examples
+
+##### Monitoring Subscription Durations in a SaaS Company
+
+**Scenario:** 
+
+A B2B SaaS company offers subscription-based services with various tiers, including monthly and annual plans. To ensure billing accuracy and service consistency, it's vital that the subscription durations recorded in the database match the expected ranges for each plan type.
+
+**Problem:**
+
+Inaccurate subscription durations can lead to billing errors, affecting revenue recognition and customer satisfaction. For instance, a monthly subscription incorrectly recorded with a duration of more than 31 days or an annual subscription exceeding 366 days (considering leap years) can cause overcharging or undercharging issues.
+
+**Solution:**
+
+The company can use the `accepted_range` test to assert that the `duration_days` column in the `subscriptions` table falls within an expected range for each subscription plan.
+
+**Implementation:**
+
+   For monthly subscriptions, the expected range of duration might be 28 to 31 days, depending on the month. The test can be applied to ensure no monthly subscription exceeds this range.
+   For annual subscriptions, considering leap years, the acceptable range could be set from 365 to 366 days. This ensures all annual plans are correctly recorded.
+
+   ```yaml
+       models:
+     - name: subscriptions
+       columns:
+         - name: duration_days
+           tests:
+             - dbt_utils.accepted_range:
+                 min_value: 28
+                 max_value: 31
+                 where: "subscription_type = 'monthly'"
+             - dbt_utils.accepted_range:
+                 min_value: 365
+                 max_value: 366
+                 where: "subscription_type = 'annual'"
+   ```
+
+
 5. **Commit your changes**: Once you're happy with your contribution, commit it with a clear and concise commit message.
 6. **Push to your fork**: Push your changes to your forked repository on GitHub.
 7. **Submit a pull request**: Navigate to the original "Awesome dbt Tests" repository you forked and press the "New pull request" button. Select your branch and submit the pull request with a clear description of your changes.
