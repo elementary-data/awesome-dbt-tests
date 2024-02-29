@@ -138,15 +138,3 @@ This repository is licensed under the [MIT License](/license.md). By contributin
 - The data community for continuously contributing to and advancing the dbt ecosystem.
 
 Join us in building the most comprehensive resource for dbt testing. Let's work together to enhance data reliability and quality across the board!
-
-## 📄 License
-
-This repository is licensed under the [MIT License](LICENSE). By contributing to the "Awesome dbt Tests" repository, you agree to abide by its terms.
-
-## 🙏 Acknowledgments
-
-- [dbt Labs](https://www.getdbt.com/) for creating and maintaining dbt, a transformational tool in the data world.
-- The creators and maintainers of the dbt packages featured in this repository.
-- The data community for continuously contributing to and advancing the dbt ecosystem.
-
-Join us in building the most comprehensive resource for dbt testing. Let's work together to enhance data reliability and quality across the board!
