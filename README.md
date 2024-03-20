@@ -18,12 +18,13 @@ dbt packages:
 
 We welcome contributions covering tests from any dbt package not listed above.
 
+## 🔎 dbt Tests categories
+
+[Data completeness](#data-completeness) - Tests to validate a dataset has all the expected records and data isn't missing. 
 
 ## 🔎 dbt Tests Index
 
 ### Data completeness
-
-Tests to validate a dataset has all the expected records and data isn't missing. 
 
 <details>
 <summary>
